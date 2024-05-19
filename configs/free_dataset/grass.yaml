@@ -1,0 +1,30 @@
+paths_file: configs/paths.yaml
+dataset_names: [grass]
+
+batch_size: 2
+batch_size_val: 2
+eval_in_train: True
+
+epochs: 100
+save_freq: 5
+save_dir: logs
+simple_name: True
+
+net_ckpt: logs/free_dataset/grass/checkpoints/MIMOUNet_epoch_best_net.pth
+tex_ckpt: logs/free_dataset/grass/checkpoints/PointTexture_epoch_best_grass.pth
+
+splitter_module: RPBG.datasets.splitter.split_by_list
+splitter_args:
+   train_list: /data/datasets/data_RPBG/free_dataset/grass/split/train.txt
+   eval_list: /data/datasets/data_RPBG/free_dataset/grass/split/eval.txt
+
+train_dataset_args:
+    keep_fov: False
+    random_zoom: [0.2,2]
+    random_shift: [-1., 1.]
+    num_samples: 4
+    inner_batch: 4
+
+val_dataset_args:
+    keep_fov: False
+

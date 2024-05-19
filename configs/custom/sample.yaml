@@ -1,0 +1,28 @@
+paths_file: configs/paths.yaml
+dataset_names: [sample]
+
+batch_size: 2
+batch_size_val: 1
+eval_in_train: True
+
+epochs: 100
+save_freq: 5
+save_dir: logs
+simple_name: True
+
+net_ckpt: logs/custom/sample/checkpoints/MIMOUNet_epoch_best_net.pth
+tex_ckpt: logs/custom/sample/checkpoints/PointTexture_epoch_best_custom.pth
+
+splitter_module: RPBG.datasets.splitter.split_by_ratio
+splitter_args:
+   train_ratio: 0.8
+
+train_dataset_args:
+    keep_fov: False
+    random_zoom: [0.2,2]
+    random_shift: [-1., 1.]
+    num_samples: 4
+    inner_batch: 4
+
+val_dataset_args:
+    keep_fov: False

@@ -1,0 +1,129 @@
+datasets:   
+    # sample custom data
+    "sample":
+        scene_path: <REPLACE_TO_YOUR_ROOT>/scene-dense.yaml
+        target_path: <REPLACE_TO_YOUR_ROOT>/sfm/undis/images
+        target_name_func: "lambda i: f'{i}.JPG'"
+
+    # GigaMVS scans
+    # "DayaTemple":
+    #     scene_path: /data/data_RPBG/GigaMVS/DayaTemple/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/DayaTemple/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "HaiyanHall":
+    #     scene_path: /data/data_RPBG/GigaMVS/HaiyanHall/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/HaiyanHall/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Library":
+    #     scene_path: /data/data_RPBG/GigaMVS/Library/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/Library/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "MemorialHall":
+    #     scene_path: /data/data_RPBG/GigaMVS/MemorialHall/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/MemorialHall/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Museum":
+    #     scene_path: /data/data_RPBG/GigaMVS/Museum/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/Museum/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "PeonyGarden":
+    #     scene_path: /data/data_RPBG/GigaMVS/PeonyGarden/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/PeonyGarden/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "ScienceSquare":
+    #     scene_path: /data/data_RPBG/GigaMVS/ScienceSquare/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/ScienceSquare/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"   
+    # "theOldGate":
+    #     scene_path: /data/data_RPBG/GigaMVS/theOldGate/scene.yaml
+    #     target_path: /data/data_RPBG/GigaMVS/theOldGate/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+
+    # # OMMO scans
+    # "Trade_Center":
+    #     scene_path: /data/data_RPBG/OMMO/Trade_Center/scene.yaml
+    #     target_path: /data/data_RPBG/OMMO/Trade_Center/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Louvre":
+    #     scene_path: /data/data_RPBG/OMMO/Louvre/scene.yaml
+    #     target_path: /data/data_RPBG/OMMO/Louvre/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+
+    # # Mill19 scans
+    # "building":
+    #     scene_path: /data/data_RPBG/Mill19/building-pixsfm/scene.yaml
+    #     target_path: /data/data_RPBG/Mill19/building-pixsfm/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "rubble":
+    #     scene_path: /data/data_RPBG/Mill19/rubble-pixsfm/scene.yaml
+    #     target_path: /data/data_RPBG/Mill19/rubble-pixsfm/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+
+    # # tanks & temples scans
+    # "Auditorium":
+    #     scene_path: /data/data_RPBG/TnT/Auditorium/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Auditorium/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Ballroom":
+    #     scene_path: /data/data_RPBG/TnT/Ballroom/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Ballroom/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Caterpillar":
+    #     scene_path: /data/data_RPBG/TnT/Caterpillar/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Caterpillar/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Church":
+    #     scene_path: /data/data_RPBG/TnT/Church/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Church/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Courtroom":
+    #     scene_path: /data/data_RPBG/TnT/Courtroom/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Courtroom/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "M60":
+    #     scene_path: /data/data_RPBG/TnT/M60/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/M60/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Museum":
+    #     scene_path: /data/data_RPBG/TnT/Museum/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Museum/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Panther":
+    #     scene_path: /data/data_RPBG/TnT/Panther/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Panther/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "Train":
+    #     scene_path: /data/data_RPBG/TnT/Train/scene.yaml
+    #     target_path: /data/data_RPBG/TnT/Train/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+
+    # # free_dataset scans
+    "grass":
+        scene_path: /data/datasets/data_RPBG/free_dataset/grass/scene.yaml
+        target_path: /data/datasets/data_RPBG/free_dataset/grass/images
+        target_name_func: "lambda i: f'{i}.JPG'"
+    # "hydrant":
+    #     scene_path: /data/data_RPBG/free_dataset/hydrant/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/hydrant/images
+    #     target_name_func: "lambda i: f'{i}.JPG'"
+    # "lab":
+    #     scene_path: /data/data_RPBG/free_dataset/lab/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/lab/images
+    #     target_name_func: "lambda i: f'{i}.jpg'"
+    # "pillar":
+    #     scene_path: /data/data_RPBG/free_dataset/pillar/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/pillar/images
+    #     target_name_func: "lambda i: f'{i}.JPG'"
+    # "road":
+    #     scene_path: /data/data_RPBG/free_dataset/road/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/road/images
+    #     target_name_func: "lambda i: f'{i}.JPG'"
+    # "sky":
+    #     scene_path: /data/data_RPBG/free_dataset/sky/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/sky/images
+    #     target_name_func: "lambda i: f'{i}.JPG'"
+    # "stair":
+    #     scene_path: /data/data_RPBG/free_dataset/stair/scene.yaml
+    #     target_path: /data/data_RPBG/free_dataset/stair/images
+    #     target_name_func: "lambda i: f'{i}.JPG'"
+    
