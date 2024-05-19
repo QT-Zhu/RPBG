@@ -1,9 +1,16 @@
 # RPBG: Robust Point-based Graphics
 
 ## Environment
-```
+
+The configuration of running environment involved CUDA compiling, so please make sure CUDA has been installed (``nvcc -V`` to check the version) and the installed PyTorch is compiled with the same CUDA version.
+
+For example, if the system's CUDA is 11.8, run the following commands to configure the environment:
+
+```shell
 conda create -n RPBG python=3.9 -y && conda activate RPBG
-sh scripts/configure_env.sh
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+pip install ./pcpr
 ```
 
 ## Custom Data
@@ -23,7 +30,7 @@ We provide the scripts to process custom data without camera calibration and tri
 ```
 
 ### Data Preparation
-First configure the path of your data in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it.
+First configure the path of your data & COLMAP installation in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it.
 ```
 sh triangulation/prepare_inputs.sh
 ```
@@ -51,7 +58,7 @@ sh scripts/train.sh configs/custom/sample.yaml
 We would like to thank the maintainers of the following repositories.
 - [PCPR](https://github.com/wuminye/PCPR): for point cloud rasterization (z-buffering) by pure CUDA
 - [NPBG](https://github.com/alievk/npbg): for the general point-based neural rendering pipeline & data convention
-- [READ](https://github.com/JOP-Lee/READ): for more features implemented
+- [READ](https://github.com/JOP-Lee/READ): for more features and the MIMO-UNet implemented
 - [Open3D](https://github.com/isl-org/Open3D): for visualization of point clouds on headless servers
 - [COLMAP](https://colmap.github.io): for camera calibration and sparse triangulation
 - [AA-RMVSNet](https://github.com/QT-Zhu/AA-RMVSNet): for dense triangulation

@@ -1,7 +1,7 @@
 set -e
 
 root_path=<REPLACE_TO_YOUR_ROOT>
-colmap_exec=~/miniconda3/bin/colmap
+colmap_exec=<YOUR_COLMAP_PATH>
 
 local_path=$(pwd)
 

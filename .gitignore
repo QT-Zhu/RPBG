@@ -1,6 +1,7 @@
 .cache/
 logs/
 data/
+.DS_Store
 *.jpg
 *.png
 *.ply
