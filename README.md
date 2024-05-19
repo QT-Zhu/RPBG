@@ -2,7 +2,7 @@
 
 ## Environment
 
-The configuration of running environment involved CUDA compiling, so please make sure CUDA has been installed (``nvcc -V`` to check the version) and the installed PyTorch is compiled with the same CUDA version.
+The configuration of running environment involves CUDA compiling, so please make sure NVCC has been installed (``nvcc -V`` to check the version) and the installed PyTorch is compiled with the same CUDA version.
 
 For example, if the system's CUDA is 11.8, run the following commands to configure the environment:
 
@@ -20,11 +20,11 @@ We provide the scripts to process custom data without camera calibration and tri
     |-- camera.xml # agisoft format of camera intrinsics & extrinsics
     |-- scene-sparse.yaml # configuration file for sparse triangulation (SfM)
     |-- scene-dense.yaml # configuration file for dense triangulation (MVS)
-    |-- images # raw images (not to be used in training)
+    |-- images # raw images (considered distorted thus not to be used in training)
     |-- sfm
         |-- sparse_pcd.ply # sparsely triangulated points
         |-- undis 
-            |-- images # undistorted images (to be used in training)
+            |-- images # undistorted images (undistorted, to be used in training)
     |-- mvs
         |-- dense_pcd.ply # densely triangulated points
 ```
@@ -35,6 +35,13 @@ First configure the path of your data & COLMAP installation in the script in `tr
 sh triangulation/prepare_inputs.sh
 ```
 Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine.
+
+Following [NPBG](https://github.com/alievk/npbg) and [READ](https://github.com/JOP-Lee/READ), we follow the data convention of Agisoft Metashape, but we provide a useful [script](https://github.com/QT-Zhu/RPBG/blob/main/tools/pose_format_converter.py) for converting camera parameters from one to another. It's now supporting:
+
+- Agisoft Metashape
+- Open3D-style camera trajectory
+- COLMAP sparse reconstruction
+- MVSNet-style format
 
 
 ### Training
