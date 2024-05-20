@@ -1,5 +1,9 @@
 # RPBG: Robust Point-based Graphics
 
+<p align="center">
+<img src="doc/rpbg.png" width="800">
+</p>
+
 ## Environment
 
 The configuration of running environment involves CUDA compiling, so please make sure NVCC has been installed (``nvcc -V`` to check the version) and the installed PyTorch is compiled with the same CUDA version.
