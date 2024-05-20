@@ -15,8 +15,8 @@ tex_ckpt: logs/free_dataset/grass/checkpoints/PointTexture_epoch_best_grass.pth
 
 splitter_module: RPBG.datasets.splitter.split_by_list
 splitter_args:
-   train_list: /data/datasets/data_RPBG/free_dataset/grass/split/train.txt
-   eval_list: /data/datasets/data_RPBG/free_dataset/grass/split/eval.txt
+   train_list: /data/data_RPBG/free_dataset/grass/split/train.txt
+   eval_list: /data/data_RPBG/free_dataset/grass/split/eval.txt
 
 train_dataset_args:
     keep_fov: False

@@ -99,8 +99,8 @@ datasets:
 
     # # free_dataset scans
     "grass":
-        scene_path: /data/datasets/data_RPBG/free_dataset/grass/scene.yaml
-        target_path: /data/datasets/data_RPBG/free_dataset/grass/images
+        scene_path: /data/data_RPBG/free_dataset/grass/scene.yaml
+        target_path: /data/data_RPBG/free_dataset/grass/images
         target_name_func: "lambda i: f'{i}.JPG'"
     # "hydrant":
     #     scene_path: /data/data_RPBG/free_dataset/hydrant/scene.yaml
