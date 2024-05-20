@@ -2,8 +2,6 @@
 logs/
 data/
 .DS_Store
-*.jpg
-*.png
 *.ply
 *.json
 *.xml
