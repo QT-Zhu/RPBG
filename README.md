@@ -14,6 +14,7 @@ pip install ./pcpr
 ```
 
 ## Custom Data
+
 We provide the scripts to process custom data without camera calibration and triangulation. The typical data structure is as follows.
 ```
 |-- custom_root_path
@@ -30,7 +31,8 @@ We provide the scripts to process custom data without camera calibration and tri
 ```
 
 ### Data Preparation
-First configure the path of your data & COLMAP installation in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it.
+First configure the path of your data & COLMAP installation in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it. Note that the GPU-enabled SIFT of COLMAP does not work under headless servers.
+
 ```
 sh triangulation/prepare_inputs.sh
 ```
