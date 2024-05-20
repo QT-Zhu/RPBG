@@ -13,7 +13,6 @@ class GatedConv(nn.Module):
         n_pad_pxl = int(self.dilation * (self.filter_size - 1) / 2)
         self.flag=relu
 
-        # this is for backward campatibility with older model checkpoints
         self.block = nn.ModuleDict(
             {
                 'conv_f': nn.Conv2d(in_channels, out_channels, kernel_size, stride=stride, dilation=dilation, padding=n_pad_pxl),
@@ -165,29 +164,16 @@ class FourierUnit(nn.Module):
 
 # MIMO-UNet with DAC, adapted from https://github.com/JOP-Lee/READ/blob/main/READ/models/unet.py
 class MIMOUNet(nn.Module):
-    r""" Rendering network with UNet architecture and multi-scale input.
-
-    Args:
-        num_input_channels: Number of channels in the input tensor or list of tensors. An integer or a list of integers for each input tensor.
-        num_output_channels: Number of output channels.
-        feature_scale: Division factor of number of convolutional channels. The bigger the less parameters in the model.
-        num_res: Number of block resnet.
-    """
     def __init__(
         self,
         num_input_channels=8, 
         num_output_channels=3,
-        feature_scale=4,
         num_res=4
 
     ):
         super().__init__()
-
-        self.feature_scale = feature_scale
         base_channel = 32
-
         base_channel = 32
-        
         
         self.feat_extract = nn.ModuleList([
             GatedConv(num_input_channels, base_channel, kernel_size=3, relu=True, stride=1),

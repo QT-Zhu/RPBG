@@ -1,12 +1,13 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from RPBG.criterions.vgg_loss import VGGLoss
 
 class ModelAndLoss(nn.Module):
-    def __init__(self, model, loss):
+    def __init__(self, model):
         super().__init__()
         self.model = model
-        self.loss = loss
+        self.vgg_loss = VGGLoss().cuda()
 
     def forward(self, *args, **kwargs):
         input = args[:-1]
@@ -18,9 +19,8 @@ class ModelAndLoss(nn.Module):
 
         im_out = output['im_out']
 
-
         loss = {}
-        loss['vgg_loss'] = self.loss(im_out, target)
+        loss['vgg_loss'] = self.vgg_loss(im_out, target)
         loss['huber_loss'] = F.huber_loss(im_out, target)
 
         im_out_fft = torch.fft.fft2(im_out, dim=(-2, -1))
@@ -112,18 +112,9 @@ class NetAndTexture(nn.Module):
 
             out = self.net(*input_multiscale, **kwargs)
             outs['im_out'].append(out['im_out'])
-            if 'seg_out' in out:
-                if 'seg_out' not in outs:
-                    outs['seg_out'] = []
-                outs['seg_out'].append(out['seg_out'])
 
-
-        if 'seg_out' in outs and len(outs['seg_out']) == len(outs['im_out']):
-            outs['seg_out'] = torch.cat(outs['seg_out'], 0)
         outs['im_out'] = torch.cat(outs['im_out'], 0)
-
-
-        
+      
         if kwargs.get('return_input'):
             return outs, input_multiscale
         else:

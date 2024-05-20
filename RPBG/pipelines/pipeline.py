@@ -8,7 +8,6 @@ from RPBG.models.texture import PointTexture
 from RPBG.models.compose import NetAndTexture
 from RPBG.utils.train import get_module, save_model, load_model_checkpoint
 from RPBG.utils.arguments import deval_args
-from RPBG.criterions.vgg_loss import VGGLoss
 
 
 TextureOptimizerClass = optim.RMSprop
@@ -20,7 +19,6 @@ def get_net(input_channels, args):
     net = MIMOUNet(
         num_input_channels=input_channels, 
         num_output_channels=3,
-        feature_scale=4,
         num_res=4
         )
     return net
@@ -56,8 +54,6 @@ class TexturePipeline:
             self._extra_optimizer = TextureOptimizerClass(textures[0].parameters(), lr=args.texture_lr)
         else:
             self._extra_optimizer = None
-
-        self.criterion = VGGLoss().cuda()
 
         ss = args.supersampling if hasattr(args, 'supersampling') else 1
 

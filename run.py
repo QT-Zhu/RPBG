@@ -118,18 +118,14 @@ def run_epoch(pipeline, phase, epoch, args, iter_cb=None):
     device = "cuda:0"
 
     model = pipeline.model
-    criterion = pipeline.criterion
     optimizer = pipeline.optimizer
     
     print(f'model parameters: {num_param(model)}')
 
-    if args.merge_loss and not args.eval_traj:
-        model = ModelAndLoss(model, criterion)
+    if not args.eval_traj:
+        model = ModelAndLoss(model)
         
     if args.multigpu:
-        # available_gpus = list(range(torch.cuda.device_count()))
-        # print(available_gpus)
-        # model = nn.DataParallel(model, device_ids=available_gpus[1:])
         model = nn.DataParallel(model)
         
     ds_list = pipeline.__dict__[f'ds_{phase}']
@@ -153,12 +149,8 @@ def run_epoch(pipeline, phase, epoch, args, iter_cb=None):
             data_input = to_device(inputs, device)
             target = to_device(data['target'], device)
             
-            if args.merge_loss:
-                out, loss_dict = model(data_input, target)
-            else:
-                out = model(data_input)
-                loss = criterion(out, target)
-            
+            out, loss_dict = model(data_input, target)
+
             ad.add('batch_time', tt.toc())
             
             im_out = out['im_out']
@@ -469,7 +461,6 @@ if __name__ == '__main__':
     parser.add('--eval_in_train', action='store_bool', default=False)
     parser.add('--eval_in_train_epoch', default=-1, type=int)
     parser.add('--eval_in_test',  action='store_bool', default=True)
-    parser.add('--merge_loss', action='store_bool', default=True)
     parser.add('--net_ckpt', type=Path, default=None, help='neural network checkpoint')
     parser.add('--save_dir', type=Path, default='data/experiments')
     parser.add('--eval_dir', type=Path, default='data/eval')
@@ -521,7 +512,7 @@ if __name__ == '__main__':
     pipeline = get_module(args.pipeline)()
     pipeline.create(args)
 
-    required_attributes = ['model', 'ds_train', 'ds_val', 'optimizer', 'criterion']
+    required_attributes = ['model', 'ds_train', 'ds_val', 'optimizer']
     check_pipeline_attributes(pipeline, required_attributes)
 
     lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(pipeline.optimizer, patience=5, factor=0.5, verbose=True)
