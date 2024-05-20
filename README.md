@@ -24,7 +24,7 @@ pip install ./pcpr
 
 ## Custom Data
 
-We provide the scripts to process custom data without camera calibration and triangulation. The typical data structure is as follows.
+We provide the scripts to process custom data without camera calibration and triangulation. The typical data structure is as follows:
 ```
 |-- custom_root_path
     |-- camera.xml # agisoft format of camera intrinsics & extrinsics
@@ -40,11 +40,13 @@ We provide the scripts to process custom data without camera calibration and tri
 ```
 
 ### Data Preparation
-First configure the path of your data & COLMAP installation in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it. Note that the GPU-enabled SIFT of COLMAP does not work under headless servers.
+First configure the path of your data & COLMAP installation in the script in `triangulation/prepare_inputs.sh`, as well as other settings if wanted, e.g., GPU indexes and distortion models, and execute it as:
 
 ```
 sh triangulation/prepare_inputs.sh
 ```
+**Note that the GPU-enabled SIFT of COLMAP does not work with headless servers.**
+
 Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine.
 
 Following [NPBG](https://github.com/alievk/npbg) and [READ](https://github.com/JOP-Lee/READ), we follow the data convention of Agisoft Metashape, but we provide a useful [script](https://github.com/QT-Zhu/RPBG/blob/main/tools/pose_format_converter.py) for converting camera parameters from one to another. It's now supporting:
@@ -53,6 +55,15 @@ Following [NPBG](https://github.com/alievk/npbg) and [READ](https://github.com/J
 - Open3D-style camera trajectory
 - COLMAP sparse reconstruction
 - MVSNet-style format
+
+For example, to convert COLMAP sparse reconstruction to Agisoft, run:
+
+```python
+from pose_format_converter import *
+COLMAP_recons = <YOUR_COLMAP_SPARSE_RECONS>
+traj = load_colmap(COLMAP_recons)
+traj.export_agisoft("camera.xml")
+```
 
 
 ### Training
