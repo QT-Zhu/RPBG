@@ -1,5 +1,10 @@
 # RPBG: Robust Point-based Graphics
 
+[RPBG: Towards Robust Neural Point-based Graphics in the Wild](https://arxiv.org/abs/2405.05663)<br />
+[Qingtian Zhu](https://qtzhu.me)<sup>1</sup>, Zizhuang Wei<sup>2,3</sup>, [Zhongtian Zheng](https://zzttzz.github.io/)<sup>3</sup>, Yifan Zhan<sup>1</sup>, Zhuyu Yao<sup>4</sup>, Jiawang Zhang<sup>4</sup>, Kejian Wu<sup>4</sup>, [Yinqiang Zheng](https://www.ai.u-tokyo.ac.jp/ja/members/yqzheng)<sup>1</sup><br />
+<sup>1</sup>The University of Tokyo, <sup>2</sup>Huawei Technologies, <sup>3</sup>Peking University, <sup>4</sup>XREAL<br />
+Under Review.
+
 <p align="center">
 <img src="doc/rpbg.png" width="800">
 </p>
