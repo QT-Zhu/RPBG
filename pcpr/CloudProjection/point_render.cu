@@ -131,7 +131,7 @@ void DepthProject(float3 * point_clouds, int num_points, int batch_id,
 	cooperative_groups::grid_group grid = cooperative_groups::this_grid();
 	for(int ids = grid.thread_rank(); ids<num_points; ids+= grid.size())
 	{
-		if (ids > num_points)	return;
+		if (ids >= num_points)	return;
 		float4 p = make_float4(point_clouds[ids], 1.0);
 
 		float4 camp =  math::MatrixMul(total_m->getRT(), p);
