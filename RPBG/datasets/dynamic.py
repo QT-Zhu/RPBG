@@ -169,15 +169,6 @@ class DynamicDataset:
             else:
                 label = self._warp(label, H) 
             proj_matrix = get_proj_matrix(K, self.tgt_sh, self.znear, self.zfar).astype(np.float32)
-            # H = self.randomImageCrop()
-            # K = H @self.K_src
-            # target = self._warp(target, H)
-            # proj_matrix = get_proj_matrix(K, self.tgt_sh, self.znear, self.zfar).astype(np.float32)
-
-        # if mask is None:
-        #     mask = np.ones((target.shape[0], target.shape[1], 1), dtype=np.float32)
-        # elif self.phase=='train':
-        #     mask = self._warp(mask, H)
 
         self.timing.add('get_target', tt.toc())
         tt.tic()
@@ -295,15 +286,6 @@ def get_datasets(args):
     return ds_train_list, ds_val_list
 
 
-# def _load_dataset(name, paths_data, args):
-#     ds_train, ds_val = _get_splits(paths_data, name, args)
-
-#     ds_train.name = ds_val.name = name
-#     ds_train.id = ds_val.id = args.dataset_names.index(name)
-
-#     return ds_train, ds_val
-
-
 def _get_splits(paths_file, ds_name, args):
     config = get_dataset_config(paths_file, ds_name)
 
@@ -338,15 +320,13 @@ def _get_splits(paths_file, ds_name, args):
         label_list = [None] * len(target_list)
 
     assert hasattr(args, 'splitter_module') and hasattr(args, 'splitter_args')
-    # print(f"{args.splitter_args=}")
+
     splits = args.splitter_module([view_list, target_list, mask_list, label_list], **args.splitter_args)
         
     view_list_train, view_list_val = splits[0]
     target_list_train, target_list_val = splits[1]
     mask_list_train, mask_list_val = splits[2]
     label_list_train, label_list_val = splits[3]
-
-    # num_samples_train = int(config['num_samples_train']) if 'num_samples_train' in config else None
     
     ds_train = DynamicDataset('train', scene_data, input_format, args.crop_size, view_list_train, target_list_train, mask_list_train, label_list_train,
         supersampling=args.supersampling, **args.train_dataset_args)
@@ -364,7 +344,6 @@ class TrajDataset:
                  drop_points=0.,supersampling=1):
 
         self.phase = phase
-        
         
         # if render image size is different from camera image size, then shift principal point
         K_src = scene_data['intrinsic_matrix']
