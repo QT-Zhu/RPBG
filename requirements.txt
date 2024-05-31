@@ -7,7 +7,7 @@ matplotlib
 trimesh
 huepy
 pillow
-pycolmap
+pycolmap==0.4.0
 plyfile
 tqdm
 scikit-learn

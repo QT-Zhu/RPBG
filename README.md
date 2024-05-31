@@ -47,7 +47,7 @@ sh triangulation/prepare_inputs.sh
 ```
 **Note that the GPU-enabled SIFT of COLMAP does not work with headless servers.**
 
-Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine.
+Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine. After execution, `scene-sparse.yaml`, `scene-dense.yaml`, and `camera.xml` will be created under the given directory.
 
 Following [NPBG](https://github.com/alievk/npbg) and [READ](https://github.com/JOP-Lee/READ), we follow the data convention of Agisoft Metashape, but we provide a useful [script](https://github.com/QT-Zhu/RPBG/blob/main/tools/pose_format_converter.py) for converting camera parameters from one to another. It's now supporting:
 
