@@ -6,10 +6,9 @@
 Under Review.
 
 
-
 <a href='https://kaldir.vc.in.tum.de/scannetpp/benchmark/nvs'><img src='https://img.shields.io/badge/First_Place-ScanNet%2B%2B_NVS_Challenge-blue'></a>
-
 <a href='https://www.gigavision.cn'><img src='https://img.shields.io/badge/State_of_the_Art-GigaMVS_Dataset-blue'></a>
+
 
 > **TL; DR:**  By performing restoration-like neural rendering upon MVS-triangulated 3D points, RPBG achieves great robustness and perceptual quality on diverse NVS datasets.
 
