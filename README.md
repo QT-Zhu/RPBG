@@ -1,9 +1,14 @@
 # RPBG: Robust Point-based Graphics
 
-[RPBG: Towards Robust Neural Point-based Graphics in the Wild](https://arxiv.org/abs/2405.05663)<br />
+[**RPBG: Towards Robust Neural Point-based Graphics in the Wild**](https://arxiv.org/abs/2405.05663)<br />
 [Qingtian Zhu](https://qtzhu.me)<sup>1</sup>, [Zizhuang Wei](https://scholar.google.com/citations?user=3Vd4LlYAAAAJ&hl)<sup>2,3</sup>, [Zhongtian Zheng](https://zzttzz.github.io/)<sup>3</sup>, [Yifan Zhan](https://github.com/Yifever20002)<sup>1</sup>, Zhuyu Yao<sup>4</sup>, Jiawang Zhang<sup>4</sup>, [Kejian Wu](https://scholar.google.com/citations?user=FXdoGrIAAAAJ)<sup>4</sup>, [Yinqiang Zheng](https://www.ai.u-tokyo.ac.jp/ja/members/yqzheng)<sup>1</sup><br />
 <sup>1</sup>The University of Tokyo, <sup>2</sup>Huawei Technologies, <sup>3</sup>Peking University, <sup>4</sup>XREAL<br />
 Under Review.
+<a href='https://kaldir.vc.in.tum.de/scannetpp/benchmark/nvs'><img src='https://img.shields.io/badge/First_Place-ScanNet%2B%2B_NVS_Challenge-blue'></a>
+
+<a href='https://www.gigavision.cn'><img src='https://img.shields.io/badge/State_of_the_Art-GigaMVS_Dataset-blue'></a>
+
+> **TL; DR:**  By performing restoration-like neural rendering upon MVS-triangulated 3D points, RPBG achieves great robustness and perceptual quality on diverse NVS datasets.
 
 <p align="center">
 <img src="doc/rpbg.png" width="800">
@@ -45,7 +50,7 @@ First configure the path of your data & COLMAP installation in the script in `tr
 ```
 sh triangulation/prepare_inputs.sh
 ```
-**Note that the GPU-enabled SIFT of COLMAP does not work with headless servers.**
+**Note that the GPU-enabled SIFT of COLMAP may not work with headless servers.**
 
 Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine. After execution, `scene-sparse.yaml`, `scene-dense.yaml`, and `camera.xml` will be created under the given directory.
 
