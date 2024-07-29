@@ -29,7 +29,7 @@ pip install -r requirements.txt
 pip install ./pcpr
 ```
 
-## Custom Data
+## To Run Your Custom Data
 
 We provide the scripts to process custom data without camera calibration and triangulation. The typical data structure is as follows:
 ```
@@ -52,7 +52,7 @@ First configure the path of your data & COLMAP installation in the script in `tr
 ```
 sh triangulation/prepare_inputs.sh
 ```
-Note that the GPU-enabled SIFT of COLMAP may not work with headless servers, check this [issue](https://github.com/QT-Zhu/RPBG/issues/1) for more information.
+Note that the GPU-enabled SIFT of COLMAP may not work with headless servers, check this [issue](https://github.com/QT-Zhu/RPBG/issues/1) for more information. By default, this script performs SfM, image undistortion, and MVS sequentially assuming all your images share one set of intrinsics including the distortion model, with unregistered images discarded.
 
 Then please fill the relevant information in `configs/paths.yaml` and create a custom config file similar to `configs/custom/sample.yaml`, and adopting the default set of hyper-parameters will just work fine. After execution, `scene-sparse.yaml`, `scene-dense.yaml`, and `camera.xml` will be created under the given directory.
 
