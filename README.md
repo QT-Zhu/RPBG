@@ -1,9 +1,9 @@
 # RPBG: Robust Point-based Graphics
 
 [**RPBG: Towards Robust Neural Point-based Graphics in the Wild**](https://arxiv.org/abs/2405.05663)<br />
-[Qingtian Zhu](https://qtzhu.me)<sup>1</sup>, [Zizhuang Wei](https://scholar.google.com/citations?user=3Vd4LlYAAAAJ&hl)<sup>2,3</sup>, [Zhongtian Zheng](https://zzttzz.github.io/)<sup>3</sup>, [Yifan Zhan](https://github.com/Yifever20002)<sup>1</sup>, Zhuyu Yao<sup>4</sup>, Jiawang Zhang<sup>4</sup>, [Kejian Wu](https://scholar.google.com/citations?user=FXdoGrIAAAAJ)<sup>4</sup>, [Yinqiang Zheng](https://www.ai.u-tokyo.ac.jp/ja/members/yqzheng)<sup>1</sup><br />
+[Qingtian Zhu](https://qtzhu.me)<sup>1</sup>, [Zizhuang Wei](https://scholar.google.com/citations?user=3Vd4LlYAAAAJ&hl)<sup>2,3</sup>, [Zhongtian Zheng](https://zzttzz.github.io/)<sup>3</sup>, [Yifan Zhan](https://yifever20002.github.io)<sup>1</sup>, Zhuyu Yao<sup>4</sup>, Jiawang Zhang<sup>4</sup>, [Kejian Wu](https://scholar.google.com/citations?user=FXdoGrIAAAAJ)<sup>4</sup>, [Yinqiang Zheng](https://www.ai.u-tokyo.ac.jp/ja/members/yqzheng)<sup>1</sup><br />
 <sup>1</sup>The University of Tokyo, <sup>2</sup>Huawei Technologies, <sup>3</sup>Peking University, <sup>4</sup>XREAL<br />
-Conditionally Accepted by **ECCV 2024**
+**ECCV 2024 Oral**
 
 
 <a href='https://kaldir.vc.in.tum.de/scannetpp/benchmark/nvs'><img src='https://img.shields.io/badge/First_Place-ScanNet%2B%2B_NVS_Challenge-blue'></a>
