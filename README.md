@@ -16,7 +16,7 @@
 <img src="doc/rpbg.png" width="800">
 </p>
 <p align="center">
-<img src="doc/nreal.gif" width="800">
+<img src="doc/nreal.gif" width="400"><br>Indoor Navigation with Textureless and Transparrent Surfaces
 </p>
 
 ## Environment
