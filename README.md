@@ -13,10 +13,7 @@
 > **TL; DR:**  MVS-triangulated Splats + Image Restoration = Robust Point-based NVS
 
 <p align="center">
-<img src="doc/rpbg.png" width="800">
-</p>
-<p align="center">
-<img src="doc/nreal.gif" width="400"><br>Indoor Navigation with Textureless and Transparrent Surfaces
+    <img src="doc/rpbg.png" width="800"><br><img src="doc/nreal.gif" width="400"><br>Indoor Navigation with Textureless and Transparrent Surfaces
 </p>
 
 ## Environment
